@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem
+        id="parent_nusantech_material_id"
+        name="Materials"
+        sequence="1"/>
+        <menuitem
+            id="child_material_id"
+            name="Materials"
+            sequence="11"
+            parent="ujian_nusantech.parent_nusantech_material_id"
+            action="ujian_nusantech.material_actions_id"/>
+</odoo>

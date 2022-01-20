@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="material_search_view_id" model="ir.ui.view">
+        <field name="name">material_search_view_id</field>
+        <field name="model">nusantech.material</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="material_code" string="Material Code" filter_domain="[('material_code', 'ilike', self)]"/>
+                <field name="material_type" string="Material Type" filter_domain="[('material_type', 'ilike', self)]"/>
+                <filter string="Fabric" name="material_type" domain="[('material_type', '=', 'fabric')]"/>
+                <filter string="Jeans" name="material_type" domain="[('material_type', '=', 'jeans')]"/>
+                <filter string="Cotton" name="material_type" domain="[('material_type', '=', 'cotton')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="material_tree_view_id" model="ir.ui.view">
+        <field name="name">material_tree_view_id</field>
+        <field name="model">nusantech.material</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Material Name"/>
+                <field name="material_code" string="Material Code"/>
+                <field name="material_type" string="Material Type"/>
+                <field name="material_buy_price" string="Material Buy Price"/>
+                <field name="supplier_id" string="Supplier"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_form_view_id" model="ir.ui.view">
+        <field name="name">material_form_view_id</field>
+        <field name="model">nusantech.material</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1><field name="name" placeholder="Name" readonly="1" nolabel="1"/></h1>
+                    <group>
+                        <group>
+                            <field name="material_code" required="1" string="Material Code"/>
+                            <field name="material_type" required="1" string="Material Type"/>
+                        </group>
+                        <group>
+                            <field name="material_buy_price" required="1" string="Material Buy Price"/>
+                            <field name="supplier_id" required="1" string="Supplier"
+                                   options="{'always_reload': True,'limit': 10, 'no_create': true, 'create': false, 'create_edit': false, 'no_open_edit':true, 'no_open': true}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
